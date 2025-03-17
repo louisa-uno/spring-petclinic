@@ -54,6 +54,8 @@ public class PetValidatorTests {
 
 	private static final LocalDate petBirthDate = LocalDate.of(1990, 1, 1);
 
+	private static final String petEyeColor = "brown";
+
 	@BeforeEach
 	void setUp() {
 		petValidator = new PetValidator();
@@ -68,6 +70,7 @@ public class PetValidatorTests {
 		pet.setName(petName);
 		pet.setType(petType);
 		pet.setBirthDate(petBirthDate);
+		pet.setEyeColor(petEyeColor);
 
 		petValidator.validate(pet, errors);
 
@@ -83,6 +86,7 @@ public class PetValidatorTests {
 			pet.setName("");
 			pet.setType(petType);
 			pet.setBirthDate(petBirthDate);
+			pet.setEyeColor(petEyeColor);
 
 			petValidator.validate(pet, errors);
 
@@ -94,6 +98,7 @@ public class PetValidatorTests {
 			pet.setName(petName);
 			pet.setType(null);
 			pet.setBirthDate(petBirthDate);
+			pet.setEyeColor(petEyeColor);
 
 			petValidator.validate(pet, errors);
 
@@ -106,6 +111,7 @@ public class PetValidatorTests {
 			pet.setName(petName);
 			pet.setType(petType);
 			pet.setBirthDate(null);
+			pet.setEyeColor(petEyeColor);
 
 			petValidator.validate(pet, errors);
 

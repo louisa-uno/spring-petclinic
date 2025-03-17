@@ -162,6 +162,7 @@ class ClinicServiceTests {
 		Collection<PetType> types = this.owners.findPetTypes();
 		pet.setType(EntityUtils.getById(types, PetType.class, 2));
 		pet.setBirthDate(LocalDate.now());
+		pet.setEyeColor("brown");
 		owner6.addPet(pet);
 		assertThat(owner6.getPets()).hasSize(found + 1);
 

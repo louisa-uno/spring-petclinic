@@ -163,6 +163,7 @@ class PetController {
 			existingPet.setName(pet.getName());
 			existingPet.setBirthDate(pet.getBirthDate());
 			existingPet.setType(pet.getType());
+			existingPet.setEyeColor(pet.getEyeColor());
 		}
 		else {
 			owner.addPet(pet);

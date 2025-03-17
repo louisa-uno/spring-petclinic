@@ -37,6 +37,7 @@ public class PetValidator implements Validator {
 	public void validate(Object obj, Errors errors) {
 		Pet pet = (Pet) obj;
 		String name = pet.getName();
+		String eyeColor = pet.getEyeColor();
 		// name validation
 		if (!StringUtils.hasText(name)) {
 			errors.rejectValue("name", REQUIRED, REQUIRED);
@@ -50,6 +51,10 @@ public class PetValidator implements Validator {
 		// birth date validation
 		if (pet.getBirthDate() == null) {
 			errors.rejectValue("birthDate", REQUIRED, REQUIRED);
+		}
+
+		if (!StringUtils.hasText(eyeColor)) {
+			errors.rejectValue("eyeColor", REQUIRED, REQUIRED);
 		}
 	}
 

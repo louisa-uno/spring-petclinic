@@ -33,6 +33,8 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 
+import jakarta.validation.constraints.NotBlank;
+
 /**
  * Simple business object representing a pet.
  *
@@ -58,6 +60,10 @@ public class Pet extends NamedEntity {
 	@OrderBy("date ASC")
 	private final Set<Visit> visits = new LinkedHashSet<>();
 
+	@Column(name = "eye_color")
+	@NotBlank
+	private String eyeColor;
+
 	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
@@ -80,6 +86,14 @@ public class Pet extends NamedEntity {
 
 	public void addVisit(Visit visit) {
 		getVisits().add(visit);
+	}
+
+	public String getEyeColor() {
+		return this.eyeColor;
+	}
+
+	public void setEyeColor(String eyeColor) {
+		this.eyeColor = eyeColor;
 	}
 
 }
