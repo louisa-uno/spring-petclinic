@@ -26,6 +26,6 @@ services:
     ports:
       - "8888:80"
     environment:
-      PGADMIN_DEFAULT_EMAIL: petclinic@petclinic.coms
+      PGADMIN_DEFAULT_EMAIL: petclinic@petclinic.com
       PGADMIN_DEFAULT_PASSWORD: petclinic
-
+      PGADMIN_CONFIG_SERVER_MODE: "False"
