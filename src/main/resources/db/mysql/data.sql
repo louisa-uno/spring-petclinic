@@ -51,3 +51,21 @@ INSERT IGNORE INTO visits VALUES (1, 7, '2010-03-04', 'rabies shot');
 INSERT IGNORE INTO visits VALUES (2, 8, '2011-03-04', 'rabies shot');
 INSERT IGNORE INTO visits VALUES (3, 8, '2009-06-04', 'neutered');
 INSERT IGNORE INTO visits VALUES (4, 7, '2008-09-04', 'spayed');
+
+INSERT IGNORE INTO fueltypes VALUES (1, 'diesel');
+INSERT IGNORE INTO fueltypes VALUES (2, 'petrol');
+INSERT IGNORE INTO fueltypes VALUES (3, 'electric');
+INSERT IGNORE INTO fueltypes VALUES (4, 'hydrogen');
+INSERT IGNORE INTO fueltypes VALUES (5, 'hybrid');
+INSERT IGNORE INTO fueltypes VALUES (6, 'nuclear');
+
+INSERT IGNORE INTO vehicles VALUES (1, 1, 'ABC123', 5, 'Red', 'Toyota', 'Corolla', 1);
+INSERT IGNORE INTO vehicles VALUES (2, 4, 'VWX789', 2, 'Pink', 'Porsche', '911', 1);
+INSERT IGNORE INTO vehicles VALUES (3, 2, 'XYZ789', 7, 'Blue', 'Honda', 'Odyssey', 2);
+INSERT IGNORE INTO vehicles VALUES (4, 3, 'LMN456', 4, 'Black', 'Ford', 'Mustang', 3);
+INSERT IGNORE INTO vehicles VALUES (5, 4, 'DEF321', 2, 'White', 'Tesla', 'Model S', 4);
+INSERT IGNORE INTO vehicles VALUES (6, 5, 'GHI654', 5, 'Silver', 'BMW', 'X5', 5);
+INSERT IGNORE INTO vehicles VALUES (7, 3, 'JKL987', 5, 'Green', 'Chevrolet', 'Volt', 6);
+INSERT IGNORE INTO vehicles VALUES (8, 1, 'MNO654', 4, 'Yellow', 'Volkswagen', 'Beetle', 7);
+INSERT IGNORE INTO vehicles VALUES (9, 2, 'PQR321', 6, 'Purple', 'Kia', 'Sorento', 8);
+INSERT IGNORE INTO vehicles VALUES (10, 3, 'STU123', 5, 'Orange', 'Audi', 'Q7', 9);

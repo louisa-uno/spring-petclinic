@@ -54,3 +54,21 @@ CREATE TABLE IF NOT EXISTS visits (
   description VARCHAR(255),
   FOREIGN KEY (pet_id) REFERENCES pets(id)
 ) engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS fueltypes (
+  id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(80)
+) engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS vehicles (
+  id              INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  fuel_type_id    INT(4) UNSIGNED NOT NULL,
+  license_plate  VARCHAR(30),
+  seats           INT(4) UNSIGNED NOT NULL,
+  color           VARCHAR(30),
+  brand           VARCHAR(30),
+  model           VARCHAR(30),
+  owner_id   INT(4) UNSIGNED,
+  FOREIGN KEY (owner_id) REFERENCES owners(id),
+  FOREIGN KEY (fuel_type_id) REFERENCES fueltypes(id)
+) engine=InnoDB;

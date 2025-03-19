@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
-
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'owners')}"
+>
   <body>
-  
-  
     <h2>Owner Information</h2>
 
     <div th:if="${message}" class="alert alert-success" id="success-message">
@@ -15,9 +14,6 @@
     <div th:if="${error}" class="alert alert-danger" id="error-message">
       <span th:text="${error}"></span>
     </div>
-
-
-
 
     <table class="table table-striped" th:object="${owner}">
       <tr>
@@ -37,19 +33,21 @@
         <td th:text="*{telephone}"></td>
       </tr>
     </table>
-  
-    <a th:href="@{__${owner.id}__/edit}" class="btn btn-primary">Edit
-      Owner</a>
-    <a th:href="@{__${owner.id}__/pets/new}" class="btn btn-primary">Add
-      New Pet</a>
-  
+
+    <a th:href="@{__${owner.id}__/edit}" class="btn btn-primary">Edit Owner</a>
+    <a th:href="@{__${owner.id}__/pets/new}" class="btn btn-primary"
+      >Add New Pet</a
+    >
+    <a th:href="@{__${owner.id}__/vehicles/new}" class="btn btn-primary"
+      >Add New Vehicle</a
+    >
+
     <br />
     <br />
     <br />
     <h2>Pets and Visits</h2>
-  
+
     <table class="table table-striped">
-  
       <tr th:each="pet : ${owner.pets}">
         <td valign="top">
           <dl class="dl-horizontal">
@@ -57,7 +55,8 @@
             <dd th:text="${pet.name}"></dd>
             <dt>Birth Date</dt>
             <dd
-              th:text="${#temporals.format(pet.birthDate, 'yyyy-MM-dd')}"></dd>
+              th:text="${#temporals.format(pet.birthDate, 'yyyy-MM-dd')}"
+            ></dd>
             <dt>Type</dt>
             <dd th:text="${pet.type}"></dd>
             <dt>Eye color</dt>
@@ -77,28 +76,75 @@
               <td th:text="${visit?.description}"></td>
             </tr>
             <tr>
-              <td><a th:href="@{__${owner.id}__/pets/__${pet.id}__/edit}">Edit Pet</a></td>
-              <td><a th:href="@{__${owner.id}__/pets/__${pet.id}__/visits/new}">Add Visit</a></td>
+              <td>
+                <a th:href="@{__${owner.id}__/pets/__${pet.id}__/edit}"
+                  >Edit Pet</a
+                >
+              </td>
+              <td>
+                <a th:href="@{__${owner.id}__/pets/__${pet.id}__/visits/new}"
+                  >Add Visit</a
+                >
+              </td>
             </tr>
           </table>
         </td>
       </tr>
-  
     </table>
+
+    <br />
+    <br />
+    <br />
+    <h2>Vehicles</h2>
+
+    <table class="table table-striped">
+      <tr th:each="vehicle : ${owner.vehicles}">
+        <td valign="top">
+          <dl class="dl-horizontal">
+            <dt>Model</dt>
+            <dd th:text="${vehicle.model}"></dd>
+
+            <dt>Brand</dt>
+            <dd th:text="${vehicle.brand}"></dd>
+
+            <dt>Color</dt>
+            <dd th:text="${vehicle.color}"></dd>
+
+            <dt>Seats</dt>
+            <dd th:text="${vehicle.seats}"></dd>
+
+            <dt>License Plate</dt>
+            <dd th:text="${vehicle.licensePlate}"></dd>
+
+            <dt>Fuel Type</dt>
+            <dd th:text="${vehicle.fuelType}"></dd>
+          </dl>
+        </td>
+        <td valign="top">
+          <table class="table-condensed">
+            <tr>
+              <td>
+                <a th:href="@{__${owner.id}__/vehicles/__${vehicle.id}__/edit}">
+                  Edit Vehicle
+                </a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
     <script>
-    // Function to hide the success and error messages after 3 seconds
-    function hideMessages() {
-        setTimeout(function() {
-            document.getElementById("success-message").style.display = "none";
-            document.getElementById("error-message").style.display = "none";
+      // Function to hide the success and error messages after 3 seconds
+      function hideMessages() {
+        setTimeout(function () {
+          document.getElementById("success-message").style.display = "none";
+          document.getElementById("error-message").style.display = "none";
         }, 3000); // 3000 milliseconds (3 seconds)
-    }
+      }
 
-    // Call the function to hide messages
-    hideMessages();
-</script>
-
+      // Call the function to hide messages
+      hideMessages();
+    </script>
   </body>
-
-
 </html>

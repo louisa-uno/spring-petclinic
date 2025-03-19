@@ -1,0 +1,44 @@
+<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+
+<body>
+
+  <h2>
+    <th:block th:if="${vehicle['new']}">New </th:block>
+    Vehicle
+  </h2>
+  <form th:object="${vehicle}" class="form-horizontal" method="post">
+    <input type="hidden" name="id" th:value="*{id}" />
+    <div class="form-group has-feedback">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Owner</label>
+        <div class="col-sm-10">
+          <span th:text="${owner?.firstName + ' ' + owner?.lastName}" />
+        </div>
+      </div>
+      <input
+        th:replace="~{fragments/selectField :: select ('Fuel Type', 'fuelType', ${fuelTypes})}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('License Plate', 'licensePlate', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Seats', 'seats', 'number')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Color', 'color', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Brand', 'brand', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Model', 'model', 'text')}" />
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button
+          th:with="text=${vehicle['new']} ? 'Add Vehicle' : 'Update Vehicle'"
+          class="btn btn-primary" type="submit" th:text="${text}">Add
+          Vehicle</button>
+      </div>
+    </div>
+  </form>
+
+</body>
+
+</html>

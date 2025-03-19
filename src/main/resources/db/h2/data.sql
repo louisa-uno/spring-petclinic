@@ -51,3 +51,22 @@ INSERT INTO visits VALUES (default, 7, '2013-01-01', 'rabies shot');
 INSERT INTO visits VALUES (default, 8, '2013-01-02', 'rabies shot');
 INSERT INTO visits VALUES (default, 8, '2013-01-03', 'neutered');
 INSERT INTO visits VALUES (default, 7, '2013-01-04', 'spayed');
+
+INSERT INTO fueltypes VALUES (DEFAULT, 'diesel');
+INSERT INTO fueltypes VALUES (DEFAULT, 'petrol');
+INSERT INTO fueltypes VALUES (DEFAULT, 'electric');
+INSERT INTO fueltypes VALUES (DEFAULT, 'hydrogen');
+INSERT INTO fueltypes VALUES (DEFAULT, 'hybrid');
+INSERT INTO fueltypes VALUES (DEFAULT, 'nuclear');
+
+INSERT INTO vehicles VALUES (DEFAULT, 6, 'ABC123', 5, 'Red', 'Toyota', 'Corolla', 1);
+INSERT INTO vehicles VALUES (DEFAULT, 6, 'VWX789', 2, 'Pink', 'Porsche', '911', 1);
+INSERT INTO vehicles VALUES (DEFAULT, 6, 'XYZ789', 7, 'Blue', 'Honda', 'Odyssey', 2);
+INSERT INTO vehicles VALUES (DEFAULT, 6, 'LMN456', 4, 'Black', 'Ford', 'Mustang', 3);
+INSERT INTO vehicles VALUES (DEFAULT, 4, 'DEF321', 2, 'White', 'Tesla', 'Model S', 4);
+INSERT INTO vehicles VALUES (DEFAULT, 5, 'GHI654', 5, 'Silver', 'BMW', 'X5', 5);
+INSERT INTO vehicles VALUES (DEFAULT, 6, 'JKL987', 5, 'Green', 'Chevrolet', 'Volt', 6);
+INSERT INTO vehicles VALUES (DEFAULT, 1, 'MNO654', 4, 'Yellow', 'Volkswagen', 'Beetle', 7);
+INSERT INTO vehicles VALUES (DEFAULT, 2, 'PQR321', 6, 'Purple', 'Kia', 'Sorento', 8);
+INSERT INTO vehicles VALUES (DEFAULT, 3, 'STU123', 5, 'Orange', 'Audi', 'Q7', 9);
+

@@ -63,3 +63,23 @@ CREATE TABLE visits (
 );
 ALTER TABLE visits ADD CONSTRAINT fk_visits_pets FOREIGN KEY (pet_id) REFERENCES pets (id);
 CREATE INDEX visits_pet_id ON visits (pet_id);
+
+CREATE TABLE fueltypes (
+  id   INTEGER IDENTITY PRIMARY KEY,
+  name VARCHAR(80)
+);
+CREATE INDEX fueltypes_name ON fueltypes (name);
+
+CREATE TABLE vehicles (
+  id              INTEGER IDENTITY PRIMARY KEY,
+  fuel_type_id    INTEGER NOT NULL,
+  license_plate  VARCHAR(30),
+  seats           INTEGER NOT NULL,
+  color           VARCHAR(30),
+  brand           VARCHAR(30),
+  model           VARCHAR(30),
+  owner_id   INTEGER
+);
+ALTER TABLE vehicles ADD CONSTRAINT fk_vehicles_owners FOREIGN KEY (owner_id) REFERENCES owners (id);
+ALTER TABLE vehicles ADD CONSTRAINT fk_vehicles_fueltypes FOREIGN KEY (fuel_type_id) REFERENCES fueltypes (id);
+CREATE INDEX vehicle_license_plate ON vehicles (license_plate);

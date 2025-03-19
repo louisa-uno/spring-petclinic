@@ -65,6 +65,11 @@ public class Owner extends Person {
 	@OrderBy("name")
 	private final List<Pet> pets = new ArrayList<>();
 
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "owner_id")
+	@OrderBy("model")
+	private final List<Vehicle> vehicles = new ArrayList<>();
+
 	public String getAddress() {
 		return this.address;
 	}
@@ -137,6 +142,47 @@ public class Owner extends Person {
 			if (compName != null && compName.equalsIgnoreCase(name)) {
 				if (!ignoreNew || !pet.isNew()) {
 					return pet;
+				}
+			}
+		}
+		return null;
+	}
+
+	public List<Vehicle> getVehicles() {
+		return this.vehicles;
+	}
+
+	public void addVehicle(Vehicle vehicle) {
+		if (vehicle.isNew()) {
+			getVehicles().add(vehicle);
+		}
+	}
+
+	/**
+	 * Return the Vehicle with the given id, or null if none found for this Owner.
+	 * @param id to test
+	 * @return the Vehicle with the given id, or null if no such Pet exists for this Owner
+	 */
+	public Vehicle getVehicle(Integer id) {
+		for (Vehicle vehicle : getVehicles()) {
+			if (!vehicle.isNew()) {
+				Integer compId = vehicle.getId();
+				if (compId.equals(id)) {
+					return vehicle;
+				}
+			}
+		}
+		return null;
+	}
+
+	// ignoreNew does ignore the new created vehicle so that it only checks if it already
+	// exists. Useful for duplicate checking :)
+	public Vehicle getVehicle(String name, boolean ignoreNew) {
+		for (Vehicle vehicle : getVehicles()) {
+			String compName = vehicle.getName();
+			if (compName != null && compName.equalsIgnoreCase(name)) {
+				if (!ignoreNew || !vehicle.isNew()) {
+					return vehicle;
 				}
 			}
 		}

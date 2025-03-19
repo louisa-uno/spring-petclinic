@@ -46,6 +46,13 @@ public interface OwnerRepository extends JpaRepository<Owner, Integer> {
 	List<PetType> findPetTypes();
 
 	/**
+	 * Retrieve all {@link VehicleFuelType}s from the data store.
+	 * @return a Collection of {@link FuelType}s.
+	 */
+	@Query("SELECT ptype FROM VehicleFuelType ptype ORDER BY ptype.name")
+	List<VehicleFuelType> findVehicleFuelTypes();
+
+	/**
 	 * Retrieve {@link Owner}s from the data store by last name, returning all owners
 	 * whose last name <i>starts</i> with the given name.
 	 * @param lastName Value to search for
